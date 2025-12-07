@@ -23,8 +23,8 @@
       name: tomcat
       state: present
 
-  - name: Clone a repo with separate git directory
-    ansible.builtin.git:
+  - name: Clone a repo
+    git:
       repo: 'https://github.com/boxfuse/boxfuse-sample-java-war-hello.git'
       dest: /tmp
       separate_git_dir: /home/devops2
