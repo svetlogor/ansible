@@ -27,7 +27,7 @@
     git:
       repo: 'https://github.com/boxfuse/boxfuse-sample-java-war-hello.git'
       dest: /tmp/ansible
-#      separate_git_dir: /home/devops2
+      separate_git_dir: /home/devops2
 #
 #
 #
