@@ -29,8 +29,9 @@
       dest: /home/devops2/java-app
 
   - name: Run command mvn package
-    chdir: /home/devops2/java-app/boxfuse-sample-java-war-hello
-    command: mvn package
+    command:
+      chdir: /home/devops2/java-app/boxfuse-sample-java-war-hello
+      cmd: mvn package
 
   - name: Copy .war in tomcat9/webapps
     copy:
