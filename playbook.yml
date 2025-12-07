@@ -1,35 +1,78 @@
 ---
-- name: bootstrapping server nginx
-  hosts: web
+- name: bootstrapping server Build
+  hosts: build
   become: yes
 
   tasks:
-  - name: Ensure nginx package is present
+  - name: Update all packages to the latest version
     apt:
-      name: nginx
+      upgrade: dist
+
+  - name: Ensure default-jdk package is present
+    apt:
+      name: default-jdk
       state: present
 
-  - name: Copy index.html
-    copy:
-      src: index.html
-      dest: /var/www/html
-
-  - name: Ensure nginx service is started
-    service:
-      name: nginx
-      state: started
-
-- name: setup db
-  hosts: db
-  become: yes
-
-  tasks:
-  - name: Ensure postgresql package is present
+  - name: Ensure maven package is present
     apt:
-      name: postgresql
+      name: maven
       state: present
 
-  - name: Ensure postgresql service is started
-    service:
-      name: postgresql
-      state: started
+  - name: Ensure tomcat package is present
+    apt:
+      name: tomcat
+      state: present
+
+  - name: Clone a repo with separate git directory
+    ansible.builtin.git:
+      repo: 'https://github.com/boxfuse/boxfuse-sample-java-war-hello.git'
+      dest: /tmp
+      separate_git_dir: /home/devops2
+#
+#
+#
+#
+#
+#
+#
+#  - name: Download a WAR File to the Tomcat webapps directory to be deployed
+#    community.general.maven_artifact:
+#      group_id: com.company
+#      artifact_id: web-app
+#      extension: war
+#      repository_url: 'https://repo.company.com/maven'
+#      dest: /var/lib/tomcat7/webapps/web-app.war
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#  - name: Copy index.html
+#    copy:
+#      src: index.html
+#      dest: /var/www/html
+#
+#  - name: Ensure nginx service is started
+#    service:
+#      name: nginx
+#      state: started
+#
+#- name: setup db
+#  hosts: db
+#  become: yes
+#
+#  tasks:
+#  - name: Ensure postgresql package is present
+#    apt:
+#      name: postgresql
+#      state: present
+#
+#  - name: Ensure postgresql service is started
+#    service:
+#      name: postgresql
+#      state: started
