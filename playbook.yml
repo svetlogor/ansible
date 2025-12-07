@@ -26,8 +26,20 @@
   - name: Clone a repo
     git:
       repo: 'https://github.com/boxfuse/boxfuse-sample-java-war-hello.git'
-      dest: /tmp/ansible
-      separate_git_dir: /home/devops2
+      dest: /home/devops2/java-app
+
+  - name: Run command mvn package
+    chdir: /home/devops2/java-app/boxfuse-sample-java-war-hello
+    command: mvn package
+
+  - name: Copy .war in tomcat9/webapps
+    copy:
+      src: /home/devops2/java-app/boxfuse-sample-java-war-hello/target/hello-1.0.war
+      dest: /var/lib/tomcat9/webapps
+
+
+
+
 #
 #
 #
