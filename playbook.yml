@@ -30,12 +30,12 @@
 
   - name: Run command mvn package
     command:
-      chdir: /home/devops2/java-app/boxfuse-sample-java-war-hello
+      chdir: /home/devops2/java-app
       cmd: mvn package
 
   - name: Copy .war in tomcat9/webapps
     copy:
-      src: /home/devops2/java-app/boxfuse-sample-java-war-hello/target/hello-1.0.war
+      src: /home/devops2/java-app/target/hello-1.0.war
       dest: /var/lib/tomcat9/webapps
 
 
