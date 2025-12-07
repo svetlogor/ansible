@@ -18,7 +18,7 @@
       name: maven
       state: present
 
-  - name: Ensure tomcat package is present
+  - name: Ensure tomcat9 package is present
     apt:
       name: tomcat9
       state: present
@@ -27,7 +27,7 @@
     git:
       repo: 'https://github.com/boxfuse/boxfuse-sample-java-war-hello.git'
       dest: /tmp
-      separate_git_dir: /home/devops2
+#      separate_git_dir: /home/devops2
 #
 #
 #
