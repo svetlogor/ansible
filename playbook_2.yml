@@ -10,7 +10,7 @@
         state: present
 
     - name: Ensure php extension matches new pattern
-      ansible.builtin.lineinfile:
+      lineinfile:
         path: /var/www/html/index.nginx-debian.html
         search_string: '<h1>Welcome to nginx!</h1>'
         line: '<p><script> document.write(new Date().toLocaleDateString()); </script></p>'
