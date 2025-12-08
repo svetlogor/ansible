@@ -1,5 +1,5 @@
 ---
-- name: bootstrapping server Build
+- name: bootstrapping server Prod
   hosts: prod
   become: yes
 
