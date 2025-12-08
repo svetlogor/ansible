@@ -57,4 +57,4 @@
     synchronize:
       src: /var/lib/tomcat9/webapps/hello-1.0
       dest: /var/lib/tomcat9/webapps
-    delegate_to: build
+    delegate_to: 158.160.76.170
