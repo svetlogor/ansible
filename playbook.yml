@@ -37,6 +37,7 @@
     copy:
       src: /home/devops2/java-app/target/hello-1.0.war
       dest: /var/lib/tomcat9/webapps
+      remote_src: yes
 
 
 
