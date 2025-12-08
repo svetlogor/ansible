@@ -56,6 +56,6 @@
   - name: Transfer files from Build to Prod
     synchronize:
       src: /var/lib/tomcat9/webapps/hello-1.0
-      dest: /var/lib/tomcat9/webapps/
+      dest: /var/lib/tomcat9/webapps
       mode: pull
     delegate_to: 158.160.76.170
