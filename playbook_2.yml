@@ -1,0 +1,15 @@
+---
+- name: bootstrapping server Build
+  hosts: prod
+  become: yes
+
+  tasks:
+    - name: Ensure nginx package is present
+      apt:
+        name: nginx
+        state: present
+
+#    - name: Edit file html
+#      apt:
+#        name: nginx
+#        state: present
