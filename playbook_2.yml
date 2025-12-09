@@ -1,6 +1,6 @@
 ---
-- name: bootstrapping server Prod
-  hosts: prod
+- name: bootstrapping server Build
+  hosts: build
   become: yes
 
   tasks:
